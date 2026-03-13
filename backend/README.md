@@ -1,6 +1,45 @@
-Used thymeleaf templete for FE.
-Separate UI controller -> UiController
-Run the springboot application and browse: http://localhost:8080/ui
-To do - 1. Build separate Angular FE
-        2. Work on opportunities and workflow thereafter
-        3. 3rd party deal integration
+# EcoSystem Banking
+
+This repository contains the backend code for the EcoSystem Banking project.
+
+## Project Structure
+
+```
+Backendecobankingnew
+├── backend
+│   ├── src
+│   ├── pom.xml
+│   ├── Dockerfile
+│   ├── mvnw
+│   └── .mvn
+````
+
+Technologies Used
+
+Java
+
+Spring Boot
+
+PostgreSQL
+
+Maven
+
+Docker
+
+
+Environment Variables Required
+
+Before running the application, configure these environment variables:
+
+Username
+
+Password
+
+OPENAI_API_KEY
+
+GOOGLE_CLIENT_ID
+
+GOOGLE_CLIENT_SECRET
+
+JWT_SECRET   
+
