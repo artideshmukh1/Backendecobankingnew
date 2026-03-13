@@ -1,0 +1,66 @@
+
+spring:
+  application:
+    name: core
+
+#  datasource:
+#    url: jdbc:h2:file:~/data/ecobank;AUTO_SERVER=TRUE
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: ""
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecobank
+    username: ${Username}
+    password: ${Password}
+    driver-class-name: org.postgresql.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.format_sql: true
+
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}   # DO NOT hard-code keys; use env var
+      audio:
+        speech:
+          enabled: false           # disable speech auto-config (not needed now)
+
+
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - openid
+              - email
+              - profile
+
+server:
+  port: 8080
+  servlet:
+      context-path: /ecobank
+
+# For local dev only—open CORS to React app
+cors:
+  allowed-origins: http://localhost:5173,http://localhost:3000,http://localhost:4200
+
+# ✅ ADD THIS AT THE BOTTOM
+app:
+  jwt:
+    secret:  ${JWT_SECRET}
+    expiration: 86400000
